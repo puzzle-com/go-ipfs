@@ -35,7 +35,7 @@ import (
 	p2phost "github.com/libp2p/go-libp2p-host"
 	peer "github.com/libp2p/go-libp2p-peer"
 	pstore "github.com/libp2p/go-libp2p-peerstore"
-	pstoremem "github.com/libp2p/go-libp2p-peerstore/pstoremem"
+	pstoreds "github.com/libp2p/go-libp2p-peerstore/pstoreds"
 	record "github.com/libp2p/go-libp2p-record"
 )
 
@@ -141,11 +141,16 @@ func NewNode(ctx context.Context, cfg *BuildCfg) (*IpfsNode, error) {
 
 	ctx = metrics.CtxScope(ctx, "ipfs")
 
+	ps, err := pstoreds.NewPeerstore(ctx, cfg.Repo.Datastore(), pstoreds.DefaultOpts())
+	if err != nil {
+		return nil, err
+	}
+
 	n := &IpfsNode{
 		IsOnline:  cfg.Online,
 		Repo:      cfg.Repo,
 		ctx:       ctx,
-		Peerstore: pstoremem.NewPeerstore(),
+		Peerstore: ps,
 	}
 
 	n.RecordValidator = record.NamespacedValidator{
