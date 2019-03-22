@@ -52,10 +52,10 @@ require (
 	github.com/ipfs/go-metrics-prometheus v0.0.2
 	github.com/ipfs/go-mfs v0.0.4
 	github.com/ipfs/go-path v0.0.3
-	github.com/ipfs/go-unixfs v0.0.3
+	github.com/ipfs/go-unixfs v0.0.4
 	github.com/ipfs/go-verifcid v0.0.1
 	github.com/ipfs/hang-fds v0.0.1
-	github.com/ipfs/interface-go-ipfs-core v0.0.4
+	github.com/ipfs/interface-go-ipfs-core v0.0.5-0.20190322222236-19b6c4ee2960
 	github.com/ipfs/iptb v1.4.0
 	github.com/ipfs/iptb-plugins v0.0.2
 	github.com/jbenet/go-is-domain v0.0.0-20160119110217-ba9815c809e0
